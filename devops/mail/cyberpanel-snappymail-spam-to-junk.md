@@ -32,11 +32,7 @@ domains, and hard-to-debug failures.
 The clean solution is to let Postfix route spam directly to Junk during
 delivery.
 
-No Sieve. No client filters. No hacks.
-
-------------------------------------------------------------------------
-
-# How to Fix It Properly
+## How to Fix It Properly
 
 CyberPanel uses Maildir and the Junk folder is typically:
 
@@ -48,9 +44,7 @@ So the correct target is:
 
 Follow these steps.
 
-------------------------------------------------------------------------
-
-# 1: Create header_checks
+## 1: Create header_checks
 
 Open:
 
@@ -63,9 +57,7 @@ Add:
 
 Save.
 
-------------------------------------------------------------------------
-
-# 2: Add spamfolder transport
+## 2: Add spamfolder transport
 
 Open:
 
@@ -79,17 +71,13 @@ Add at the bottom:
 
 Save.
 
-------------------------------------------------------------------------
-
-# 3: Enable header_checks
+## 3: Enable header_checks
 
 Run:
 
   postconf -e "header_checks = regexp:/etc/postfix/header_checks"
 
-------------------------------------------------------------------------
-
-# 4: Reload Postfix
+## 4: Reload Postfix
 
 Run:
 
@@ -97,9 +85,7 @@ Run:
 
 Done.
 
-------------------------------------------------------------------------
-
-# How It Works Now
+## How It Works Now
 
 Before:
 
@@ -111,9 +97,7 @@ Internet → Postfix → SpamAssassin → Postfix detects spam → Junk
 
 Spam never touches Inbox.
 
-------------------------------------------------------------------------
-
-# How to Verify
+## How to Verify
 
 Send a GTUBE test email.
 
@@ -127,9 +111,7 @@ Message appears in Junk.
 
 Not Inbox.
 
-------------------------------------------------------------------------
-
-# Summary
+## Summary
 
 SpamAssassin marking spam is not enough.
 
@@ -137,5 +119,3 @@ You must tell Postfix where spam goes.
 
 Once you add header_checks and spamfolder transport, spam goes directly
 to Junk where it belongs.
-
-Permanent fix. No Sieve required.
