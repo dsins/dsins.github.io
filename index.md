@@ -4,7 +4,7 @@ description: Field guides on infrastructure, software, data engineering, DevOPS,
 ---
 
 
-# DevOps & MLOps<br>Cyber Security<br>Data Engineering<br>Machine Learning<br>Artificial Engineering<br>Software Engineering Management
+# DevOps & MLOps • Cyber Security • Data Engineering • Machine Learning • Artificial Engineering • Software Engineering Management
 
 This repository is public engineering notebook.
 Just fixes, configs, failures, guides and working solutions.
