@@ -1,3 +1,18 @@
+<style>
+  body {
+    background-color: #0d1117; /* GitHub Dark Arkaplan */
+    color: #c9d1d9;           /* Açık gri yazı */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  a { color: #58a6ff; }       /* Link rengi */
+  code { background: #161b22; padding: 0.2rem; border-radius: 6px; }
+  pre { background: #161b22; padding: 1rem; overflow: auto; }
+</style>
+
 ---
 title: DataSins — Technical Notes
 description: Field notes on infrastructure, software, data, and systems. Minimal theory. Maximum signal.
