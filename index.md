@@ -29,7 +29,7 @@ I'm Datasins
 ### Devops
 
 - [CyberPanel + SnappyMail: spam goes to Junk](./devops/mail/cyberpanel-snappymail-spam-to-junk.md)
-- [Rclone Backup to Google Drive | encrypted, cron, security](./devops/backup/rclone-gdrive-backup.md)
+- [Rclone Backup to Google Drive: encrypted, cron, security](./devops/backup/rclone-gdrive-backup.md)
 
 ## Philosophy
 
