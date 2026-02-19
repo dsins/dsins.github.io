@@ -39,17 +39,13 @@ Machiavellianism
 
 These notes assume:
 
-- Linux familiarity
-- root access
-- production responsibility
+Linux familiarity • root access • production responsibility
 
 They are not beginner guides.
 
 ## License
 
-MIT
-
-Use at your own risk.
+MIT & Use at your own risk.
 
 ## End
 
