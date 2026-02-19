@@ -209,7 +209,7 @@ Versioned backups
 
 Restricted root_folder_id
 
-# Example Final Command
+## Final Command
 
     rclone sync /backup gdrive-crypt
 
