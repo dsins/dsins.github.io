@@ -13,15 +13,7 @@ If your rclone remote is configured like:
 
 Then this:
 
-    rclone copy /backup gdrive:
-
-is correct.
-
-This is WRONG:
-
-    rclone copy /backup gdrive:mail-backups/
-
-Because you are already inside that folder.
+    rclone copy /backup gdrive
 
 Adding it again creates:
 
@@ -31,11 +23,7 @@ or causes errors.
 
 ## 1: Unencrypted Backup
 
-Simplest method.
-
-Command:
-
-    rclone copy /backup gdrive: -P
+    rclone copy /backup gdrive -P
 
 Pros:
 
@@ -62,7 +50,7 @@ New remote:
 
 Backup:
 
-    rclone copy /backup gdrive-crypt: -P
+    rclone copy /backup gdrive-crypt -P
 
 Now files are unreadable in Drive.
 
@@ -136,9 +124,7 @@ Edit cron:
 
     crontab -e
 
-Example:
-
-Daily backup at 03:00:
+Example: Daily backup at 03:00:
 
     0 3 * * * /usr/local/bin/backup.sh
 
