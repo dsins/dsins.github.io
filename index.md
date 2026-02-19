@@ -1,10 +1,10 @@
 ---
-title: Datasins - Data, DevOPS, Security, AI/ML, Software Engineering Management Guides
+title: Datasins - DevOPS, Security, AI/ML, Data & Software Engineering Management Guides
 description: Field guides on infrastructure, software, data engineering, DevOPS, AI/ML, and systems. Minimal theory. Maximum signal.
 ---
 
 
-# Data Engineering, DevOps, Cyber Security, AI/ML, Software Engineering Management
+# DevOps & MLOps<br>Cyber Security<br>Data Engineering<br>Machine Learning<br>Artificial Engineering<br>Software Engineering Management
 
 This repository is public engineering notebook.
 Just fixes, configs, failures, guides and working solutions.
