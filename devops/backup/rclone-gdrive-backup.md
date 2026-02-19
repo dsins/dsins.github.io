@@ -60,55 +60,56 @@ Now files are unreadable in Drive.
 
 Script;
 
-    #!/bin/bash
-    
-    DATE=$(date +%Y-%m-%d_%H-%M-%S)
-    
-    DEST=/backup/mailbackup/mail-$DATE
-    
-    mkdir -p $DEST
-    
-    echo "Backing up mail data..."
-    
-    cp -a /home/vmail $DEST/
-    
-    echo "Backing up postfix..."
-    
-    cp -a /etc/postfix $DEST/
-    
-    echo "Backing up dovecot..."
-    
-    cp -a /etc/dovecot $DEST/
-    
-    echo "Backing up spamassassin..."
-    
-    cp -a /etc/spamassassin $DEST/ 2>/dev/null
-    cp -a /etc/mail/spamassassin $DEST/ 2>/dev/null
-    
-    echo "Backing up opendkim..."
-    
-    cp -a /etc/opendkim $DEST/ 2>/dev/null
-    cp -a /etc/opendkim.conf $DEST/ 2>/dev/null
-    
-    echo "Backing up cyberpanel..."
-    
-    cp -a /etc/cyberpanel $DEST/ 2>/dev/null
-    cp -a /usr/local/CyberCP $DEST/ 2>/dev/null
-    
-    echo "Dumping MySQL..."
-    
-    mysqldump --all-databases > $DEST/mysql-all.sql
-    
-    echo "Saving installed packages..."
-    
-    dpkg --get-selections > $DEST/packages.txt
-    
-    echo "Compressing..."
-    
-    tar -czf $DEST.tar.gz $DEST
-    
-    echo "Backup complete: $DEST.tar.gz"
+```bash
+#!/bin/bash
 
+DATE=$(date +%Y-%m-%d_%H-%M-%S)
+
+DEST=/backup/mailbackup/mail-$DATE
+
+mkdir -p $DEST
+
+echo "Backing up mail data..."
+
+cp -a /home/vmail $DEST/
+
+echo "Backing up postfix..."
+
+cp -a /etc/postfix $DEST/
+
+echo "Backing up dovecot..."
+
+cp -a /etc/dovecot $DEST/
+
+echo "Backing up spamassassin..."
+
+cp -a /etc/spamassassin $DEST/ 2>/dev/null
+cp -a /etc/mail/spamassassin $DEST/ 2>/dev/null
+
+echo "Backing up opendkim..."
+
+cp -a /etc/opendkim $DEST/ 2>/dev/null
+cp -a /etc/opendkim.conf $DEST/ 2>/dev/null
+
+echo "Backing up cyberpanel..."
+
+cp -a /etc/cyberpanel $DEST/ 2>/dev/null
+cp -a /usr/local/CyberCP $DEST/ 2>/dev/null
+
+echo "Dumping MySQL..."
+
+mysqldump --all-databases > $DEST/mysql-all.sql
+
+echo "Saving installed packages..."
+
+dpkg --get-selections > $DEST/packages.txt
+
+echo "Compressing..."
+
+tar -czf $DEST.tar.gz $DEST
+
+echo "Backup complete: $DEST.tar.gz"
+```
 
 Make executable:
 
