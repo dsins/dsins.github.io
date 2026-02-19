@@ -33,7 +33,7 @@ or causes errors.
 
 ------------------------------------------------------------------------
 
-# Method 1 --- Unencrypted Backup
+# 1: Unencrypted Backup
 
 Simplest method.
 
@@ -52,7 +52,7 @@ Cons:
 
 ------------------------------------------------------------------------
 
-# Method 2 --- Encrypted Backup (Recommended)
+# 2: Encrypted Backup (Recommended)
 
 Create crypt remote:
 
@@ -74,7 +74,7 @@ Now files are unreadable in Drive.
 
 ------------------------------------------------------------------------
 
-# Method 3 --- Scripted Backup
+# 3: Scripted Backup
 
     nano /usr/local/bin/backup.sh
 
@@ -136,11 +136,11 @@ Make executable:
 
 Run:
 
-    /usr/local/bin/backup.sh
+    ./backup.sh
 
 ------------------------------------------------------------------------
 
-# Method 4 --- Cron Automation
+# 4: Cron Automation
 
 Edit cron:
 
@@ -154,7 +154,7 @@ Daily backup at 03:00:
 
 ------------------------------------------------------------------------
 
-# Method 5 --- Versioned Backup
+# 5: Versioned Backup
 
 Safer approach.
 
