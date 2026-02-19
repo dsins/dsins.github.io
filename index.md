@@ -31,6 +31,10 @@ I'm Datasins
 - [CyberPanel + SnappyMail: spam goes to Junk](./devops/mail/cyberpanel-snappymail-spam-to-junk.md)
 - [Rclone Backup to Google Drive: encrypted, cron, security](./devops/backup/rclone-gdrive-backup.md)
 
+### Others
+
+- [Code Syntax Highlight Test Page](./test.md)
+
 ## Philosophy
 
 Machiavellianism
