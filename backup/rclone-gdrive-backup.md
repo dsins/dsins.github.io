@@ -76,7 +76,9 @@ Now files are unreadable in Drive.
 
 # Method 3 --- Scripted Backup
 
-´nano /usr/local/bin/backup.sh´
+    nano /usr/local/bin/backup.sh
+
+Script;
 
     #!/bin/bash
     
