@@ -14,7 +14,7 @@ If something is here, it means it broke in real life and had to be solved proper
 
 ---
 
-# Who am I
+## Who am I
 
 I'm Datasins
 
@@ -33,7 +33,7 @@ Links:
 
 ---
 
-# What is in this repo
+## What is in this repo
 
 Short, practical, directly applicable technical notes.
 
@@ -53,28 +53,22 @@ These are operator notes.
 
 ---
 
-# Index
+## Index
 
-## Devops
+### Devops
 
 - [CyberPanel + SnappyMail: spam goes to Junk](./devops/mail/cyberpanel-snappymail-spam-to-junk.md)
 - [Rclone Backup to Google Drive — encrypted, cron, security](./devops/backup/rclone-gdrive-backup.md)
 
 ---
 
-# Philosophy
+## Philosophy
 
-Most technical content online is optimized for clicks.
-
-This repo is optimized for recovery.
-
-When production breaks, you don't need opinions.
-
-You need exact commands that work.
+Machiavellianism
 
 ---
 
-# Warning
+## Warning
 
 These notes assume:
 
@@ -86,7 +80,7 @@ They are not beginner guides.
 
 ---
 
-# License
+## License
 
 MIT
 
@@ -94,7 +88,7 @@ Use at your own risk.
 
 ---
 
-# End
+## End
 
 ```bash
 "Vibes scale confidence. Experience scales consequences."
