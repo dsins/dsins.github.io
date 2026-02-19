@@ -4,9 +4,7 @@ This guide explains how to correctly back up your server using rclone,
 including encrypted and unencrypted methods, cron automation, scripts,
 and security precautions.
 
-------------------------------------------------------------------------
-
-# Important: root_folder_id Behavior
+## Important: root_folder_id Behavior
 
 If your rclone remote is configured like:
 
@@ -31,9 +29,7 @@ Adding it again creates:
 
 or causes errors.
 
-------------------------------------------------------------------------
-
-# 1: Unencrypted Backup
+## 1: Unencrypted Backup
 
 Simplest method.
 
@@ -50,9 +46,7 @@ Cons:
 
 -   Anyone with Drive access can read backup
 
-------------------------------------------------------------------------
-
-# 2: Encrypted Backup (Recommended)
+## 2: Encrypted Backup (Recommended)
 
 Create crypt remote:
 
@@ -72,9 +66,7 @@ Backup:
 
 Now files are unreadable in Drive.
 
-------------------------------------------------------------------------
-
-# 3: Scripted Backup
+## 3: Scripted Backup
 
     nano /usr/local/bin/backup.sh
 
@@ -138,9 +130,7 @@ Run:
 
     ./backup.sh
 
-------------------------------------------------------------------------
-
-# 4: Cron Automation
+## 4: Cron Automation
 
 Edit cron:
 
@@ -152,9 +142,7 @@ Daily backup at 03:00:
 
     0 3 * * * /usr/local/bin/backup.sh
 
-------------------------------------------------------------------------
-
-# 5: Versioned Backup
+## 5: Versioned Backup
 
 Safer approach.
 
@@ -173,9 +161,7 @@ This creates:
     2026-02-19
     2026-02-20
 
-------------------------------------------------------------------------
-
-# Security Best Practices
+## Security Best Practices
 
 Always use:
 
@@ -223,9 +209,7 @@ Example:
 
     tail -f /var/log/rclone-backup.log
 
-------------------------------------------------------------------------
-
-# Recommended Production Setup
+## Recommended Production Setup
 
 Use:
 
@@ -239,10 +223,7 @@ Versioned backups
 
 Restricted root_folder_id
 
-------------------------------------------------------------------------
-
 # Example Final Command
 
-    rclone sync /backup gdrive-crypt:
+    rclone sync /backup gdrive-crypt
 
-------------------------------------------------------------------------
