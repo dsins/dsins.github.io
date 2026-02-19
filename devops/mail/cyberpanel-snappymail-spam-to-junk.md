@@ -6,8 +6,8 @@ land in Inbox instead of Junk.
 
 You see headers like:
 
-X-Spam-Flag: YES\
-Subject: \[SPAM\] Something
+  X-Spam-Flag: YES\
+  Subject: \[SPAM\] Something
 
 SpamAssassin is working. But the message still goes to Inbox.
 
@@ -40,60 +40,60 @@ No Sieve. No client filters. No hacks.
 
 CyberPanel uses Maildir and the Junk folder is typically:
 
-Maildir/.Junk/
+  Maildir/.Junk/
 
 So the correct target is:
 
-INBOX.Junk
+  INBOX.Junk
 
 Follow these steps.
 
 ------------------------------------------------------------------------
 
-# Step 1 --- Create header_checks
+# 1: Create header_checks
 
 Open:
 
-/etc/postfix/header_checks
+  /etc/postfix/header_checks
 
 Add:
 
-/\^X-Spam-Flag: YES/ FILTER spamfolder: /\^Subject: \[SPAM\]/ FILTER
-spamfolder:
+  /\^X-Spam-Flag: YES/ FILTER spamfolder: /\^Subject: \[SPAM\]/ FILTER
+  spamfolder:
 
 Save.
 
 ------------------------------------------------------------------------
 
-# Step 2 --- Add spamfolder transport
+# 2: Add spamfolder transport
 
 Open:
 
-/etc/postfix/master.cf
+  /etc/postfix/master.cf
 
 Add at the bottom:
 
-spamfolder unix - n n - - pipe\
-flags=DRhu user=vmail:vmail argv=/usr/lib/dovecot/deliver -f \${sender}
--d \${recipient} -m INBOX.Junk
+  spamfolder unix - n n - - pipe\
+  flags=DRhu user=vmail:vmail argv=/usr/lib/dovecot/deliver -f \${sender}
+  -d \${recipient} -m INBOX.Junk
 
 Save.
 
 ------------------------------------------------------------------------
 
-# Step 3 --- Enable header_checks
+# 3: Enable header_checks
 
 Run:
 
-postconf -e "header_checks = regexp:/etc/postfix/header_checks"
+  postconf -e "header_checks = regexp:/etc/postfix/header_checks"
 
 ------------------------------------------------------------------------
 
-# Step 4 --- Reload Postfix
+# 4: Reload Postfix
 
 Run:
 
-postfix reload
+  postfix reload
 
 Done.
 
