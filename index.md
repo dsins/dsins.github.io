@@ -1,5 +1,5 @@
 ---
-title: Uğur Akçıl — Technical Notes
+title: DataSins — Technical Notes
 description: Field notes on infrastructure, software, data, and systems. Minimal theory. Maximum signal.
 ---
 
@@ -8,13 +8,28 @@ description: Field notes on infrastructure, software, data, and systems. Minimal
 
 This repository is my public engineering notebook.
 
-No storytelling.  
-No marketing.  
-No fluff.
-
 Just fixes, configs, failures, and working solutions.
 
 If something is here, it means it broke in real life and had to be solved properly.
+
+
+⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢠⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣸⣿⣧⡀⢀⣠⣤⣶⣶⣶⣶⣶⣦⣤⣀⠀⣠⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠈⣿⣿⣷⣜⣿⣿⣿⣿⣿⣿⣿⣿⣿⢏⣵⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠸⣿⣿⣿⡙⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⣼⣿⣿⡇⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢻⣿⣿⣷⣦⣀⣉⣽⣿⣿⣿⣿⣍⣁⣠⣾⣿⣿⣿⠁⠀⠀⠀⠀⣀⣀⡙⣷⣦⣄⠀⠀⠀
+⠀⠀⠀⣀⡀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⢀⣠⣴⣾⠿⠟⠛⢉⣿⡿⠿⢿⣦⡀
+⠀⢀⣴⠏⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⣅⣴⣿⡿⠟⠁⠀⠀⠀⠉⠁⠀⠀⠀⠀⠁
+⠀⣾⣿⠀⠀⠀⠀⠀⠀⠉⠛⠿⣿⣿⣿⣿⣿⡿⠟⠋⣹⣿⣿⡿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢸⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣾⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠈⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣾⣿⣿⠿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠘⢿⣿⣿⣿⣷⣶⣤⣤⣴⣶⣿⣿⣿⣿⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠈⠙⠻⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
 ---
 
@@ -30,7 +45,9 @@ I'm Datasins (@dsins).
 Links:
 
 - GitHub → https://github.com/dsins  
+- Instagram → https://instagram.com/datasins
 - DataSins → https://www.datasins.com  
+- X → https://x.com/datasins
 - Website → https://www.ugurakcil.com  
 
 ---
@@ -79,34 +96,6 @@ You need exact commands that work.
 
 ---
 
-# Expected Content
-
-Examples of upcoming notes:
-
-- Postfix routing behavior deep dive
-- Maildir internals
-- systemd failure patterns
-- Docker production mistakes
-- TLS misconfigurations
-- Linux debugging workflows
-- scaling problems and fixes
-
----
-
-# Structure
-
-Each note lives in its own directory.
-
-Example:
-devops/mail/
-devops/backup/
-devops/linux/
-devops/docker/
-security/network
-data/scrapping
-
----
-
 # Warning
 
 These notes assume:
@@ -129,9 +118,7 @@ Use at your own risk.
 
 # End
 
-If you're here, something probably broke.
+"Vibes scale confidence. Experience scales consequences."
 
-Good.
 
-That's how real engineering happens.
 
