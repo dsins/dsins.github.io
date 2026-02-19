@@ -1,10 +1,10 @@
 ---
-title: DataSins — Technical Notes
-description: Field notes on infrastructure, software, data, and systems. Minimal theory. Maximum signal.
+title: Datasins - Data, DevOPS, Security, AI/ML, Software Engineering Management Guides
+description: Field guides on infrastructure, software, data engineering, DevOPS, AI/ML, and systems. Minimal theory. Maximum signal.
 ---
 
 
-# /notes
+# Data Engineering, DevOps, Cyber Security, AI/ML, Software Engineering Management
 
 This repository is my public engineering notebook.
 
@@ -16,12 +16,12 @@ If something is here, it means it broke in real life and had to be solved proper
 
 # Who am I
 
-I'm Datasins (@dsins).
+I'm Datasins
 
 - Software developer since early 2000s
 - Director of Software Engineering
 - Infrastructure, backend, and systems focused
-- [DataSins](https://www.datasins.com)
+- [Datasins](https://www.datasins.com)
 
 Links:
 
@@ -99,6 +99,7 @@ Use at your own risk.
 ```bash
 "Vibes scale confidence. Experience scales consequences."
 ```
+
 
 
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
