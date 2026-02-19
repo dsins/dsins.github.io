@@ -6,11 +6,13 @@ description: Field guides on infrastructure, software, data engineering, DevOPS,
 
 # Data Engineering, DevOps, Cyber Security, AI/ML, Software Engineering Management
 
-This repository is my public engineering notebook.
-
-Just fixes, configs, failures, and working solutions.
-
+This repository is public engineering notebook.
+Just fixes, configs, failures, guides and working solutions.
 If something is here, it means it broke in real life and had to be solved properly.
+
+Short, practical, directly applicable technical notes.
+Most of them are written right after solving production issues.
+No beginner tutorials. These are operator notes.
 
 ## Who am I
 
@@ -20,20 +22,7 @@ I'm Datasins
 - Director of Software Engineering
 - Infrastructure, backend, and systems focused
 
-Links:
-
-- GitHub → https://github.com/dsins  
-- Instagram → https://instagram.com/datasins
-- X → https://x.com/datasins
-- Website → https://www.ugurakcil.com  
-
-## What is in this repo
-
-Short, practical, directly applicable technical notes.
-Most of them are written right after solving production issues.
-No beginner tutorials. These are operator notes.
-
----
+[GitHub](https://github.com/dsins) • [Insta](https://instagram.com/datasins) • [X](https://x.com/datasins) • [Website](https://www.ugurakcil.com)
 
 ## Index
 
