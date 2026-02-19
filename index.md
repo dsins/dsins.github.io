@@ -28,9 +28,9 @@ I'm Datasins
 
 ### Devops
 
+- [WireGuard VPN Server & Client Setup on AWS](./devops/selhosted/wireguard-vpn-server-aws.md)
 - [CyberPanel + SnappyMail: spam goes to Junk](./devops/mail/cyberpanel-snappymail-spam-to-junk.md)
 - [Rclone Backup to Google Drive: encrypted, cron, security](./devops/backup/rclone-gdrive-backup.md)
-- [WireGuard VPN Server & Client Setup on AWS](./devops/selhosted/wireguard-vpn-server-aws.md)
 
 ### Others
 
