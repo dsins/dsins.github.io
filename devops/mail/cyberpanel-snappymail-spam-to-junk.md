@@ -6,8 +6,8 @@ land in Inbox instead of Junk.
 
 You see headers like:
 
-  X-Spam-Flag: YES\
-  Subject: \[SPAM\] Something
+    X-Spam-Flag: YES\
+    Subject: \[SPAM\] Something
 
 SpamAssassin is working. But the message still goes to Inbox.
 
@@ -36,11 +36,11 @@ delivery.
 
 CyberPanel uses Maildir and the Junk folder is typically:
 
-  Maildir/.Junk/
+    Maildir/.Junk/
 
 So the correct target is:
 
-  INBOX.Junk
+    INBOX.Junk
 
 Follow these steps.
 
@@ -48,12 +48,12 @@ Follow these steps.
 
 Open:
 
-  /etc/postfix/header_checks
+    /etc/postfix/header_checks
 
 Add:
 
-  /\^X-Spam-Flag: YES/ FILTER spamfolder: /\^Subject: \[SPAM\]/ FILTER
-  spamfolder:
+    /\^X-Spam-Flag: YES/ FILTER spamfolder: /\^Subject: \[SPAM\]/ FILTER
+    spamfolder:
 
 Save.
 
@@ -61,13 +61,13 @@ Save.
 
 Open:
 
-  /etc/postfix/master.cf
+    /etc/postfix/master.cf
 
 Add at the bottom:
 
-  spamfolder unix - n n - - pipe\
-  flags=DRhu user=vmail:vmail argv=/usr/lib/dovecot/deliver -f \${sender}
-  -d \${recipient} -m INBOX.Junk
+    spamfolder unix - n n - - pipe\
+    flags=DRhu user=vmail:vmail argv=/usr/lib/dovecot/deliver -f \${sender}
+    -d \${recipient} -m INBOX.Junk
 
 Save.
 
@@ -75,13 +75,13 @@ Save.
 
 Run:
 
-  postconf -e "header_checks = regexp:/etc/postfix/header_checks"
+    postconf -e "header_checks = regexp:/etc/postfix/header_checks"
 
 ## 4: Reload Postfix
 
 Run:
 
-  postfix reload
+    postfix reload
 
 Done.
 
@@ -89,33 +89,19 @@ Done.
 
 Before:
 
-Internet → Postfix → SpamAssassin → Inbox
+    Internet → Postfix → SpamAssassin → Inbox
 
 After:
 
-Internet → Postfix → SpamAssassin → Postfix detects spam → Junk
+    Internet → Postfix → SpamAssassin → Postfix detects spam → Junk
 
 Spam never touches Inbox.
 
 ## How to Verify
 
-Send a GTUBE test email.
+    Send a GTUBE test email.
 
 Body:
 
-XJS*C4JDBQADN1.NSBN3*2IDNEN*GTUBE-STANDARD-ANTI-UBE-TEST-EMAIL*C.34X
+    XJS*C4JDBQADN1.NSBN3*2IDNEN*GTUBE-STANDARD-ANTI-UBE-TEST-EMAIL*C.34X
 
-Result:
-
-Message appears in Junk.
-
-Not Inbox.
-
-## Summary
-
-SpamAssassin marking spam is not enough.
-
-You must tell Postfix where spam goes.
-
-Once you add header_checks and spamfolder transport, spam goes directly
-to Junk where it belongs.
