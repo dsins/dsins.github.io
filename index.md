@@ -21,13 +21,12 @@ I'm Datasins
 - Software developer since early 2000s
 - Director of Software Engineering
 - Infrastructure, backend, and systems focused
-- [Datasins](https://www.datasins.com)
 
 Links:
 
 - GitHub → https://github.com/dsins  
 - Instagram → https://instagram.com/datasins
-- DataSins → https://www.datasins.com  
+- Datasins → https://www.datasins.com  
 - X → https://x.com/datasins
 - Website → https://www.ugurakcil.com  
 
@@ -93,6 +92,7 @@ Use at your own risk.
 ```bash
 "Vibes scale confidence. Experience scales consequences."
 ```
+
 
 
 
