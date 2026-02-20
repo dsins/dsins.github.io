@@ -32,8 +32,10 @@ I'm Datasins
 - [Git: Multiple Accounts & SSH Keys via ~/.ssh/config](./devops/git/git-multi-account-ssh-config.md)
 - [WireGuard VPN Server & Client Setup on AWS](./devops/infrastructure/wireguard-vpn-server-aws.md)
 - [Git: Detached HEAD Recovery & Lost Commit Rescue](./devops/git/git-detached-head-recovery.md)
+- [VirtualBox: Installation, Extension Pack & Guest Additions on Ubuntu](./devops/virtualization/virtualbox-install-ubuntu.md)
 - [CyberPanel + SnappyMail: spam goes to Junk](./devops/mail/cyberpanel-snappymail-spam-to-junk.md)
 - [Rclone Backup to Google Drive: encrypted, cron, security](./devops/backup/rclone-gdrive-backup.md)
+
 
 ### Programming
 
