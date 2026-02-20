@@ -28,6 +28,7 @@ I'm Datasins
 
 ### Devops
 
+- [Hosting a Compiled Binary as a systemd Daemon (Rust, Go, C++)](./devops/infrastructure/systemd-daemon-compiled-binary.md)
 - [Git: Multiple Accounts & SSH Keys via ~/.ssh/config](./devops/git/git-multi-account-ssh-config.md)
 - [WireGuard VPN Server & Client Setup on AWS](./devops/infrastructure/wireguard-vpn-server-aws.md)
 - [Git: Detached HEAD Recovery & Lost Commit Rescue](./devops/git/git-detached-head-recovery.md)
