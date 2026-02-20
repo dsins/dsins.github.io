@@ -19,23 +19,23 @@ nmap --version
 
 ---
 
-## Scan Types — How They Work and When to Use Each
+## Scan Types - How They Work and When to Use Each
 
-### TCP SYN Scan (`-sS`) — Default, recommended
+### TCP SYN Scan (`-sS`) - Default, recommended
 
-Sends SYN → waits for SYN/ACK (open) or RST (closed). Never completes the 3-way handshake. Faster and stealthier than full connect — does not appear in the target application's connection logs (but does appear in firewall/IDS logs).
+Sends SYN → waits for SYN/ACK (open) or RST (closed). Never completes the 3-way handshake. Faster and stealthier than full connect - does not appear in the target application's connection logs (but does appear in firewall/IDS logs).
 
 ```bash
 sudo nmap -sS 192.168.1.1
-# Requires root/sudo — raw socket access needed
+# Requires root/sudo - raw socket access needed
 ```
 
 Port states:
-- `open` — SYN/ACK received
-- `closed` — RST received
-- `filtered` — no response (firewall dropping packets)
+- `open` - SYN/ACK received
+- `closed` - RST received
+- `filtered` - no response (firewall dropping packets)
 
-### TCP Connect Scan (`-sT`) — No root required
+### TCP Connect Scan (`-sT`) - No root required
 
 Completes the full 3-way handshake. Slower, logged by the target application. Use when you don't have root or when scanning through a proxy.
 
@@ -58,11 +58,11 @@ Common UDP services to check: DNS (53), DHCP (67/68), SNMP (161), NTP (123), TFT
 
 | Flag | Type | Notes |
 |---|---|---|
-| `-sN` | TCP Null | No flags set — evades some stateless firewalls |
-| `-sF` | TCP FIN | FIN only — same evasion use case |
-| `-sX` | Xmas | FIN+PSH+URG — same evasion use case |
+| `-sN` | TCP Null | No flags set - evades some stateless firewalls |
+| `-sF` | TCP FIN | FIN only - same evasion use case |
+| `-sX` | Xmas | FIN+PSH+URG - same evasion use case |
 | `-sA` | TCP ACK | Maps firewall rules, not open/closed ports |
-| `-sn` | Ping scan (host discovery) | No port scan — just finds live hosts |
+| `-sn` | Ping scan (host discovery) | No port scan - just finds live hosts |
 
 ---
 
@@ -72,7 +72,7 @@ Common UDP services to check: DNS (53), DHCP (67/68), SNMP (161), NTP (123), TFT
 nmap 192.168.1.1                  # single IP
 nmap 192.168.1.1-20               # IP range
 nmap 192.168.1.0/24               # entire subnet (256 hosts)
-nmap 10.0.0.0/8                   # large network (use with caution — slow)
+nmap 10.0.0.0/8                   # large network (use with caution - slow)
 nmap scanme.nmap.org              # hostname
 nmap -iL targets.txt              # read targets from file
 nmap 192.168.1.1 192.168.1.2      # multiple targets
@@ -89,7 +89,7 @@ nmap -p 22,80,443 192.168.1.1     # specific ports
 nmap -p 1-1024 192.168.1.1        # port range
 nmap -p- 192.168.1.1              # all 65535 ports (slow)
 nmap --top-ports 100 192.168.1.1  # top 100 most common ports
-nmap -F 192.168.1.1               # fast — top 100 ports (same as --top-ports 100)
+nmap -F 192.168.1.1               # fast - top 100 ports (same as --top-ports 100)
 ```
 
 ---
@@ -127,8 +127,8 @@ Controls speed/stealth tradeoff. Higher = faster but noisier and more likely to 
 | `-T1` | Sneaky | IDS evasion |
 | `-T2` | Polite | Reduces bandwidth, slower |
 | `-T3` | Normal | Default |
-| `-T4` | Aggressive | Fast — good for local networks |
-| `-T5` | Insane | Very fast — may miss results |
+| `-T4` | Aggressive | Fast - good for local networks |
+| `-T5` | Insane | Very fast - may miss results |
 
 ```bash
 sudo nmap -T4 -sS -sV 192.168.1.0/24  # good balance for internal network audit
@@ -222,7 +222,7 @@ grep "open" output.gnmap
 
 ---
 
-## Reading Output — What to Act On
+## Reading Output - What to Act On
 
 ```
 PORT     STATE    SERVICE  VERSION
@@ -231,20 +231,20 @@ PORT     STATE    SERVICE  VERSION
 80/tcp   open     http     Apache 2.2   ← EOL version, patch immediately
 443/tcp  open     https    Apache 2.2
 3306/tcp open     mysql                ← should NOT be exposed externally
-8080/tcp filtered http                 ← firewall dropping — service exists but blocked
+8080/tcp filtered http                 ← firewall dropping - service exists but blocked
 ```
 
 **Risk interpretation:**
 
 | Finding | Risk | Action |
 |---|---|---|
-| Telnet (23), FTP (21) open | High | Disable — unencrypted protocols |
+| Telnet (23), FTP (21) open | High | Disable - unencrypted protocols |
 | SSH on port 22 with old version | Medium | Update OpenSSH, consider port change |
 | MySQL/PostgreSQL externally exposed | High | Bind to 127.0.0.1 or firewall |
 | RDP (3389) publicly open | High | Restrict to VPN/IP whitelist |
 | Outdated service versions | Medium–High | Patch or replace |
-| `filtered` ports | Low | Firewall working — verify intentional |
-| Unexpected open ports | Variable | Investigate — may indicate compromise |
+| `filtered` ports | Low | Firewall working - verify intentional |
+| Unexpected open ports | Variable | Investigate - may indicate compromise |
 
 ---
 
@@ -252,9 +252,9 @@ PORT     STATE    SERVICE  VERSION
 
 | Port | Protocol | Notes |
 |---|---|---|
-| 21 | FTP | Unencrypted — prefer SFTP (22) |
+| 21 | FTP | Unencrypted - prefer SFTP (22) |
 | 22 | SSH / SFTP | Should be restricted by IP if possible |
-| 23 | Telnet | Unencrypted — never expose |
+| 23 | Telnet | Unencrypted - never expose |
 | 25 | SMTP | Restrict to mail server IPs |
 | 53 | DNS (UDP/TCP) | Should only be open on DNS servers |
 | 80 | HTTP | OK if intentional, redirect to 443 |
@@ -262,8 +262,8 @@ PORT     STATE    SERVICE  VERSION
 | 3306 | MySQL | Never expose publicly |
 | 5432 | PostgreSQL | Never expose publicly |
 | 3389 | RDP | Restrict to VPN/whitelist only |
-| 6379 | Redis | Never expose — no auth by default |
-| 27017 | MongoDB | Never expose — auth often disabled |
+| 6379 | Redis | Never expose - no auth by default |
+| 27017 | MongoDB | Never expose - auth often disabled |
 
 ---
 
@@ -271,6 +271,6 @@ PORT     STATE    SERVICE  VERSION
 
 - Nmap by default scans the 1,000 most common ports, not all 65,535. Use `-p-` for full coverage.
 - `filtered` means packets are being dropped (firewall). The port may still have a service behind it.
-- `open|filtered` on UDP means Nmap can't tell — no response could mean open or firewall.
+- `open|filtered` on UDP means Nmap can't tell - no response could mean open or firewall.
 - For scheduled audits, automate with cron + `-oA` and diff outputs to detect new open ports.
 - Zenmap is the official Nmap GUI if you prefer visual output.

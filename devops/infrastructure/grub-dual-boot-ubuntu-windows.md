@@ -1,12 +1,12 @@
 # GRUB: Manually Adding Windows to Ubuntu Boot Menu
 
-**When you need this:** Ubuntu doesn't detect Windows in GRUB after install, or `update-grub` finds it but then loses it after kernel updates. This guide covers manual entry via `40_custom` — the permanent, update-proof approach.
+**When you need this:** Ubuntu doesn't detect Windows in GRUB after install, or `update-grub` finds it but then loses it after kernel updates. This guide covers manual entry via `40_custom` - the permanent, update-proof approach.
 
 > **Warning:** Editing GRUB incorrectly can prevent the system from booting. Read each step before running it. Have a live USB ready as a fallback.
 
 ---
 
-## Prerequisites — Understand Your Setup First
+## Prerequisites - Understand Your Setup First
 
 ### Is your system UEFI or Legacy BIOS?
 
@@ -22,7 +22,7 @@ This guide covers **UEFI** (the common case for any machine made after ~2012). L
 sudo fdisk -l
 ```
 
-Look for a partition with type `EFI System` — typically small (100–500 MB), formatted as FAT32. Example output:
+Look for a partition with type `EFI System` - typically small (100–500 MB), formatted as FAT32. Example output:
 
 ```
 Device           Start      End  Sectors  Size Type
@@ -35,7 +35,7 @@ Note the device path (e.g., `/dev/nvme0n1p1` for NVMe, `/dev/sda1` for SATA).
 
 ---
 
-## Step 1 — Get the EFI Partition UUID
+## Step 1 - Get the EFI Partition UUID
 
 ```bash
 sudo blkid /dev/nvme0n1p1
@@ -46,11 +46,11 @@ Example output:
 /dev/nvme0n1p1: UUID="2B11-51E9" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="EFI System Partition"
 ```
 
-Copy the `UUID` value — you'll use it in the GRUB entry. The short format (e.g., `2B11-51E9`) is correct for FAT32 EFI partitions.
+Copy the `UUID` value - you'll use it in the GRUB entry. The short format (e.g., `2B11-51E9`) is correct for FAT32 EFI partitions.
 
 ---
 
-## Step 2 — Verify the Windows Boot File Exists
+## Step 2 - Verify the Windows Boot File Exists
 
 Mount the EFI partition and confirm the Windows bootloader is there:
 
@@ -66,11 +66,11 @@ ls /mnt/efi/EFI/Microsoft/Boot/
 sudo umount /mnt/efi
 ```
 
-If `bootmgfw.efi` is missing, Windows boot files are damaged — this GRUB entry won't fix that. You'd need Windows recovery media.
+If `bootmgfw.efi` is missing, Windows boot files are damaged - this GRUB entry won't fix that. You'd need Windows recovery media.
 
 ---
 
-## Step 3 — Add the Custom GRUB Entry
+## Step 3 - Add the Custom GRUB Entry
 
 ```bash
 sudo nano /etc/grub.d/40_custom
@@ -95,22 +95,22 @@ Save: `Ctrl+O` → `Enter` → `Ctrl+X`
 
 ---
 
-## Step 4 — Set Permissions
+## Step 4 - Set Permissions
 
 ```bash
 sudo chmod o-w /etc/grub.d/40_custom
-# Remove write permission for others — GRUB ignores world-writable scripts as a security measure
+# Remove write permission for others - GRUB ignores world-writable scripts as a security measure
 ```
 
 ---
 
-## Step 5 — Update GRUB and Reboot
+## Step 5 - Update GRUB and Reboot
 
 ```bash
 sudo update-grub
 ```
 
-Check the output — you should see a line like:
+Check the output - you should see a line like:
 ```
 Found Windows Boot Manager on /dev/nvme0n1p1@/EFI/Microsoft/Boot/bootmgfw.efi
 ```
@@ -137,7 +137,7 @@ sudo nano /etc/default/grub
 ```
 
 ```bash
-# Boot the first entry (Ubuntu) by default — 0-indexed
+# Boot the first entry (Ubuntu) by default - 0-indexed
 GRUB_DEFAULT=0
 
 # Or boot a specific entry by name
@@ -209,8 +209,8 @@ Common errors and causes:
 | Error | Cause |
 |---|---|
 | `error: file '/EFI/Microsoft/Boot/bootmgfw.efi' not found` | Wrong UUID, or EFI partition not mounted as `root` |
-| `error: invalid signature` | Secure Boot mismatch — try disabling Secure Boot in BIOS |
-| Boots to Windows recovery | Windows fast startup wrote dirty state — disable Fast Startup in Windows |
+| `error: invalid signature` | Secure Boot mismatch - try disabling Secure Boot in BIOS |
+| Boots to Windows recovery | Windows fast startup wrote dirty state - disable Fast Startup in Windows |
 
 **Verify UUID is correct:**
 ```bash
@@ -242,7 +242,7 @@ sudo reboot
 
 ## Notes
 
-- Always use `40_custom` for manual entries, not `grub.cfg` directly — `grub.cfg` is auto-generated and overwritten by `update-grub`.
+- Always use `40_custom` for manual entries, not `grub.cfg` directly - `grub.cfg` is auto-generated and overwritten by `update-grub`.
 - On NVMe drives, partition names are `nvme0n1p1`, `nvme0n1p2`, etc. On SATA, they're `sda1`, `sda2`, etc.
 - If you have multiple Windows installations or multiple EFI partitions, repeat Steps 1–3 for each, using different `menuentry` names.
-- `insmod part_gpt`, `insmod fat`, `insmod chain` lines ensure the required GRUB modules are loaded — safe to include even if already loaded globally.
+- `insmod part_gpt`, `insmod fat`, `insmod chain` lines ensure the required GRUB modules are loaded - safe to include even if already loaded globally.

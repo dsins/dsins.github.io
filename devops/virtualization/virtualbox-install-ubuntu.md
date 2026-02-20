@@ -4,14 +4,14 @@
 
 ## Installation
 
-### Method A — Ubuntu repos (quick, but often outdated version)
+### Method A - Ubuntu repos (quick, but often outdated version)
 
 ```bash
 sudo apt update
 sudo apt install virtualbox
 ```
 
-### Method B — Official Oracle repo (recommended, always current)
+### Method B - Official Oracle repo (recommended, always current)
 
 ```bash
 # Add Oracle GPG key
@@ -65,7 +65,7 @@ sudo vboxmanage extpack install Oracle_VirtualBox_Extension_Pack-7.1.4.vbox-extp
 vboxmanage list extpacks
 ```
 
-> Extension Pack version must match VirtualBox version exactly — mismatch causes install failure.
+> Extension Pack version must match VirtualBox version exactly - mismatch causes install failure.
 
 ---
 
@@ -174,7 +174,7 @@ sudo vboxmanage extpack uninstall "Oracle VirtualBox Extension Pack"
 sudo apt autoremove
 ```
 
-VMs and their disk images in `~/VirtualBox VMs/` are **not** deleted by purge — remove manually if needed:
+VMs and their disk images in `~/VirtualBox VMs/` are **not** deleted by purge - remove manually if needed:
 ```bash
 rm -rf ~/VirtualBox\ VMs/
 ```
@@ -218,6 +218,6 @@ Guest Additions not installed or outdated. Reinstall matching the current Virtua
 
 ## Notes
 
-- VirtualBox is a **Type 2 hypervisor** (runs on top of the host OS). For production server virtualization, consider KVM/QEMU (Type 1, built into Linux kernel) — better performance, no GUI dependency.
+- VirtualBox is a **Type 2 hypervisor** (runs on top of the host OS). For production server virtualization, consider KVM/QEMU (Type 1, built into Linux kernel) - better performance, no GUI dependency.
 - Snapshots consume disk space proportional to changes made after the snapshot. Don't accumulate snapshots indefinitely.
-- `.vdi` (VirtualBox native), `.vmdk` (VMware compatible), and `.vhd` (Hyper-V compatible) disk formats are all supported — useful when migrating VMs between hypervisors.
+- `.vdi` (VirtualBox native), `.vmdk` (VMware compatible), and `.vhd` (Hyper-V compatible) disk formats are all supported - useful when migrating VMs between hypervisors.

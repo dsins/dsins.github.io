@@ -1,6 +1,6 @@
 # Hosting a Compiled Binary as a systemd Daemon (Rust, Go, C++)
 
-**Use case:** You built a web service in Rust, Go, C++, or any compiled language and need it running persistently on a Linux server — auto-starting on boot, auto-restarting on crash, with proper logging.
+**Use case:** You built a web service in Rust, Go, C++, or any compiled language and need it running persistently on a Linux server - auto-starting on boot, auto-restarting on crash, with proper logging.
 
 ---
 
@@ -81,9 +81,9 @@ WantedBy=multi-user.target
 |---|---|
 | `After=network.target` | Wait for network stack before starting |
 | `Type=simple` | Process started by `ExecStart` is the main process. Use `Type=forking` if the binary daemonizes itself |
-| `Restart=always` | Restart on any exit — crash, OOM kill, etc. |
+| `Restart=always` | Restart on any exit - crash, OOM kill, etc. |
 | `RestartSec=5` | Wait 5 seconds before restarting (prevents tight crash loops) |
-| `EnvironmentFile=` | Load env vars from a file — keep secrets out of the unit file |
+| `EnvironmentFile=` | Load env vars from a file - keep secrets out of the unit file |
 | `LimitNOFILE=65536` | Raise open file descriptor limit (important for high-concurrency servers) |
 
 ### Restart policies
@@ -91,7 +91,7 @@ WantedBy=multi-user.target
 | Value | Restarts on |
 |---|---|
 | `no` | Never (default) |
-| `always` | Any exit — clean or crash |
+| `always` | Any exit - clean or crash |
 | `on-failure` | Non-zero exit code or signal only |
 | `on-abnormal` | Signals, watchdog timeout, but not clean exit |
 
@@ -219,7 +219,7 @@ sudo certbot --nginx -d yourdomain.com
 ## Troubleshooting
 
 ```bash
-# Service fails to start — check the full error
+# Service fails to start - check the full error
 sudo journalctl -u web-server -n 50 --no-pager
 
 # Binary not executable
@@ -242,6 +242,6 @@ sudo chown -R webserver:webserver /opt/web-server
 
 - If your binary loads config files or writes logs relative to its location, set `WorkingDirectory=` explicitly in the unit file.
 - `EnvironmentFile` should be `chmod 600` and owned by root to protect secrets: `sudo chmod 600 /etc/web-server/env`
-- For Rust binaries: build with `cargo build --release` — debug builds are 10–100x slower.
+- For Rust binaries: build with `cargo build --release` - debug builds are 10–100x slower.
 - For Go binaries: `CGO_ENABLED=0 GOOS=linux go build -o web-server .` produces a fully static binary with no libc dependency.
-- Use `sudo systemctl daemon-reload` any time you edit the `.service` file — changes are not picked up automatically.
+- Use `sudo systemctl daemon-reload` any time you edit the `.service` file - changes are not picked up automatically.
