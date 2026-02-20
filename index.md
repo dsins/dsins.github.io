@@ -28,10 +28,15 @@ I'm Datasins
 
 ### Devops
 
+- [Git: Multiple Accounts & SSH Keys via ~/.ssh/config](./devops/git/git-multi-account-ssh-config.md)
 - [WireGuard VPN Server & Client Setup on AWS](./devops/infrastructure/wireguard-vpn-server-aws.md)
 - [Git: Detached HEAD Recovery & Lost Commit Rescue](./devops/git/git-detached-head-recovery.md)
 - [CyberPanel + SnappyMail: spam goes to Junk](./devops/mail/cyberpanel-snappymail-spam-to-junk.md)
 - [Rclone Backup to Google Drive: encrypted, cron, security](./devops/backup/rclone-gdrive-backup.md)
+
+### Programming
+
+- [PHP: MySQLi vs PDO - Secure CRUD Reference](./programming/php/php-pdo-mysqli-crud-reference.md)
 
 ### OS
 

@@ -420,7 +420,7 @@ int main(void) {
     qsort(students, n, sizeof(Student), compare_score);
 
     for (int i = 0; i < n; i++) {
-        printf("%d. %s — %.1f\n", i + 1, students[i].name, students[i].score);
+        printf("%d. %s - %.1f\n", i + 1, students[i].name, students[i].score);
     }
     return 0;
 }

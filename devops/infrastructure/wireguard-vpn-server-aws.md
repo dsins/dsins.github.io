@@ -39,7 +39,7 @@ Example output:
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 ...
 2: enX0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 ...
 ```
-Note whatever interface name appears (e.g., `enX0`, `ens5`) — you'll use it below.
+Note whatever interface name appears (e.g., `enX0`, `ens5`) - you'll use it below.
 
 ### **1.5. Generate WireGuard Keys**
 ```bash
@@ -62,7 +62,7 @@ PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -A FORWARD -o wg0 -j ACC
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -D FORWARD -o wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o <NETWORK_INTERFACE> -j MASQUERADE
 ```
 
-> **Note:** `SaveConfig = true` is intentionally omitted here. When enabled, WireGuard overwrites your config file on shutdown — which can erase manually added `[Peer]` blocks. Add peers manually and keep `SaveConfig` off for predictable behavior.
+> **Note:** `SaveConfig = true` is intentionally omitted here. When enabled, WireGuard overwrites your config file on shutdown - which can erase manually added `[Peer]` blocks. Add peers manually and keep `SaveConfig` off for predictable behavior.
 
 Replace `<NETWORK_INTERFACE>` with the interface name you found in step 1.4.
 
@@ -237,4 +237,4 @@ source ~/.zshrc
 
 ---
 
-WireGuard is now running on AWS, clients are connected, the correct network interface is identified, DNS is used instead of raw IPs, and NAT routing is properly configured. **If `curl ifconfig.me` returns your AWS Elastic IP from a client — everything is working!** 🚀
+WireGuard is now running on AWS, clients are connected, the correct network interface is identified, DNS is used instead of raw IPs, and NAT routing is properly configured. **If `curl ifconfig.me` returns your AWS Elastic IP from a client - everything is working!** 🚀

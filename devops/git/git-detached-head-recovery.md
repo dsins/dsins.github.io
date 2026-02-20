@@ -10,9 +10,9 @@
 |---|---|
 | `HEAD` | Where you are right now. Normally points to a branch, not a commit. |
 | `main` | Your local branch pointer. |
-| `origin/main` | A read-only tracking reference — Git's local record of where the remote was at last fetch/pull/push. **Not a branch to work on.** |
+| `origin/main` | A read-only tracking reference - Git's local record of where the remote was at last fetch/pull/push. **Not a branch to work on.** |
 
-**Detached HEAD** = HEAD points directly to a commit SHA instead of a branch name. You can commit in this state, but those commits are not attached to any branch — they'll appear "lost" after switching away.
+**Detached HEAD** = HEAD points directly to a commit SHA instead of a branch name. You can commit in this state, but those commits are not attached to any branch - they'll appear "lost" after switching away.
 
 ---
 
@@ -51,13 +51,13 @@ git branch --contains <sha>
 ## Recovery Workflow
 
 ### Scenario
-- `0b43628` — bad commit, already pushed to `origin/main`
-- `2b68751`, `471cf7b` — good commits made in detached state (not on any branch)
+- `0b43628` - bad commit, already pushed to `origin/main`
+- `2b68751`, `471cf7b` - good commits made in detached state (not on any branch)
 - Goal: remove bad commit, keep good work, push clean history
 
 ---
 
-### Step 1 — Anchor detached commits to a temp branch
+### Step 1 - Anchor detached commits to a temp branch
 
 Do this **immediately** before switching anywhere:
 
@@ -69,7 +69,7 @@ This permanently attaches your "lost" commits to a named branch. They are now sa
 
 ---
 
-### Step 2 — Return to main
+### Step 2 - Return to main
 
 ```bash
 git checkout main
@@ -77,7 +77,7 @@ git checkout main
 
 ---
 
-### Step 3 — Move main back to the last good commit
+### Step 3 - Move main back to the last good commit
 
 ```bash
 # Find the last good commit
@@ -90,7 +90,7 @@ git reset --hard <good-commit-sha>
 
 ---
 
-### Step 4 — Remove the bad commit from remote
+### Step 4 - Remove the bad commit from remote
 
 ```bash
 git push --force-with-lease origin main
@@ -100,7 +100,7 @@ git push --force-with-lease origin main
 
 ---
 
-### Step 5 — Cherry-pick your good commits onto main
+### Step 5 - Cherry-pick your good commits onto main
 
 ```bash
 git cherry-pick 2b68751 471cf7b
@@ -112,7 +112,7 @@ git cherry-pick 2b68751 471cf7b
 
 ---
 
-### Step 6 — Push
+### Step 6 - Push
 
 ```bash
 git push origin main
@@ -120,7 +120,7 @@ git push origin main
 
 ---
 
-### Step 7 — Verify
+### Step 7 - Verify
 
 ```bash
 git log --oneline --decorate --graph --all --max-count=20
@@ -138,13 +138,13 @@ git branch -d wip/local        # delete temp branch if no longer needed
 
 ---
 
-## Revert vs Reset — Choose Correctly
+## Revert vs Reset - Choose Correctly
 
 | | `git revert` | `git reset --hard` + `--force-with-lease` |
 |---|---|---|
 | **Use when** | Others may have pulled the bad commit | You're the only consumer, or team can re-sync |
-| **History** | Adds a new "undo" commit — history stays intact | Rewrites history — bad commit removed |
-| **Safe for teams** | Yes | No — others must `git pull --rebase` or reset |
+| **History** | Adds a new "undo" commit - history stays intact | Rewrites history - bad commit removed |
+| **Safe for teams** | Yes | No - others must `git pull --rebase` or reset |
 
 ```bash
 # Option A: Revert (team-safe)
@@ -160,8 +160,8 @@ git push --force-with-lease origin main
 
 ## Why Commits "Disappear"
 
-- **`git log` shows the wrong history** — `git log` only follows the current HEAD chain. If you're on a different branch, you see that branch's history. Use `git log --all` or `git reflog` to see everything.
-- **Push didn't include detached commits** — `git push origin main` pushes the `main` branch, not HEAD. If HEAD is detached and ahead of `main`, those commits don't go anywhere.
+- **`git log` shows the wrong history** - `git log` only follows the current HEAD chain. If you're on a different branch, you see that branch's history. Use `git log --all` or `git reflog` to see everything.
+- **Push didn't include detached commits** - `git push origin main` pushes the `main` branch, not HEAD. If HEAD is detached and ahead of `main`, those commits don't go anywhere.
 
 ---
 
