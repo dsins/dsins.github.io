@@ -37,6 +37,7 @@ I'm Datasins
 ### Programming
 
 - [PHP: MySQLi vs PDO - Secure CRUD Reference](./programming/php/php-pdo-mysqli-crud-reference.md)
+- [C++ Memory Management: Dynamic Allocation, Smart Pointers & Common Pitfalls](./programming/cpp/cpp-memory-management.md)
 
 ### OS
 
