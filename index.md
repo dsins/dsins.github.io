@@ -29,6 +29,7 @@ I'm Datasins
 ### Devops
 
 - [WireGuard VPN Server & Client Setup on AWS](./devops/selfhosted/wireguard-vpn-server-aws.md)
+- [Git: Detached HEAD Recovery & Lost Commit Rescue](./devops/git/git-detached-head-recovery.md)
 - [CyberPanel + SnappyMail: spam goes to Junk](./devops/mail/cyberpanel-snappymail-spam-to-junk.md)
 - [Rclone Backup to Google Drive: encrypted, cron, security](./devops/backup/rclone-gdrive-backup.md)
 
