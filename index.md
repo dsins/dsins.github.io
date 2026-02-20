@@ -47,6 +47,7 @@ I'm Datasins
 ### OS
 
 - [FileZilla: Invisible Filenames & Text Glitch Fix on Ubuntu](./os/ubuntu/filezilla-wayland-x11-fix.md)
+- [GRUB: Manually Adding Windows to Ubuntu Boot Menu](./devops/infrastructure/grub-dual-boot-ubuntu-windows.md)
 
 ### Others
 
