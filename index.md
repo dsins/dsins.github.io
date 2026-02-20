@@ -39,6 +39,10 @@ I'm Datasins
 - [PHP: MySQLi vs PDO - Secure CRUD Reference](./programming/php/php-pdo-mysqli-crud-reference.md)
 - [C++ Memory Management: Dynamic Allocation, Smart Pointers & Common Pitfalls](./programming/cpp/cpp-memory-management.md)
 
+### Security
+
+- [Nmap: Port Scanning & Network Reconnaissance Reference](./security/scanning/nmap-port-scanning-reference.md)
+
 ### OS
 
 - [FileZilla: Invisible Filenames & Text Glitch Fix on Ubuntu](./os/ubuntu/filezilla-wayland-x11-fix.md)
